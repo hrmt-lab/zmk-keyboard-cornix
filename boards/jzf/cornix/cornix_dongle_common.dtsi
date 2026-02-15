@@ -5,15 +5,43 @@
  */
 #include "cornix-layouts.dtsi"
 #include "cornix_sensors.dtsi"
+#include "cornix.dtsi"
+
 /{
     chosen {
-        zmk,kscan = &mock_kscan;
+        //zmk,kscan = &mock_kscan;
+        wakeup-source; 
     };
-    mock_kscan: kscan_1 {
-        compatible = "zmk,kscan-mock";
-        columns = <0>;
-        rows = <0>;
-        events = <0>;
-    };
+    //mock_kscan: kscan_1 {
+    //    compatible = "zmk,kscan-mock";
+    //    columns = <0>;
+    //    rows = <0>;
+    //    events = <0>;
+    //};
+};
+
+&kscan0 {
+    compatible = "zmk,kscan-gpio-matrix";
+    diode-direction = "col2row";
+    wakeup-source;
+
+    col-gpios
+        = <&xiao_d 2 GPIO_ACTIVE_HIGH>
+        , <&gpio0 15 GPIO_ACTIVE_HIGH>    /* P0.15 */
+        , <&gpio0 19 GPIO_ACTIVE_HIGH>    /* P0.19 */
+        , <&gpio1  1 GPIO_ACTIVE_HIGH>    /* P1.01 */
+        , <&gpio0  9 GPIO_ACTIVE_HIGH>    /* P0.09 */
+        , <&gpio0 10 GPIO_ACTIVE_HIGH>    /* P0.10 */
+        ;
+
+    row-gpios
+        = <&gpio1  7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    /* P1.07 */  
+        , <&gpio1  5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    /* P1.05 */
+        , <&gpio1  3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    /* P1.03 */
+        ;
+};
+
+&default_transform {
+    row-offset = <4>;
 };
 // vim: set ft=dts :

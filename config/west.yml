@@ -11,7 +11,7 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: ac7f75b8591d39aaf3b66b9d26f26c9ed921a009
       clone-depth: 1
       import:
         file: app/west.yml
@@ -23,13 +23,13 @@ manifest:
     #  remote: hitsmaxft
     #  revision: main
     #  clone-depth: 1
-    - name: zmk-dongle-display
-      remote: hitsmaxft
-      revision: zephyr4
+    # - name: zmk-dongle-display
+    #   remote: hitsmaxft
+    #   revision: zephyr4
+    #   clone-depth: 1
+    - name: zmk-dongle-screen
+      remote: janpfischer
+      revision: upgrade-4.1
       clone-depth: 1
-    #- name: zmk-dongle-screen
-    #  remote: janpfischer
-    #  revision: main
-    #  clone-depth: 1
   self:
     path: config
