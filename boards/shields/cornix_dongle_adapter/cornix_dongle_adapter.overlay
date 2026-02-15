@@ -1,2 +1,3 @@
 #include "../../jzf/cornix/cornix_dongle_common.dtsi"
 //vim: set ft=dts:
+&pwm0 { status = "okay"; };
