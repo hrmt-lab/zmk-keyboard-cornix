@@ -18,10 +18,17 @@ include:
   #   snippet: studio-rpc-usb-uart nrf52840-nosd
   #   artifact-name: cornix_dongle_nosd
   # dongle screen not yet supports zephyr4
+  # - board: xiao_ble
+  #   shield: cornix_dongle_adapter dongle_screen
+  #   snippet: studio-rpc-usb-uart nrf52840-nosd
+  #   artifact-name: cornix_dongle_zds_see
+
+    # Prospector
   - board: xiao_ble
-    shield: cornix_dongle_adapter dongle_screen
+    shield: cornix_dongle_adapter prospector_adapter
     snippet: studio-rpc-usb-uart nrf52840-nosd
     artifact-name: cornix_dongle_zds_see
+
   # - board: nice_nano
   #   shield: cornix_dongle_adapter dongle_screen
   #   snippet: studio-rpc-usb-uart
