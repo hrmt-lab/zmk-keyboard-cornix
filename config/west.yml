@@ -6,11 +6,8 @@ manifest:
       url-base: https://github.com/hitsmaxft
     - name: urob
       url-base: https://github.com/urob
-    # - name: janpfischer
-    #   url-base: https://github.com/janpfischer
-    # Prospector  
-    - name: carrefinho
-      url-base: https://github.com/carrefinho
+    - name: janpfischer
+      url-base: https://github.com/janpfischer
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -30,16 +27,9 @@ manifest:
     #   remote: hitsmaxft
     #   revision: zephyr4
     #   clone-depth: 1
-    # - name: zmk-dongle-screen
-    #   remote: janpfischer
-    #   revision: upgrade-4.1
-    #   clone-depth: 1
-    # Prospector  
-    - name: prospector-zmk-module
-      remote: carrefinho
-      revision: feat/new-status-screens
-    - name: zmk-keyboard-cornix
-      remote: cornix-shield
-      revision: main
+    - name: zmk-dongle-screen
+      remote: janpfischer
+      revision: upgrade-4.1
+      clone-depth: 1
   self:
     path: config
