@@ -1,24 +1,23 @@
-// #include <zephyr/dt-bindings/led/led.h>
+// Enable the on-board WS2812 strip (2 LEDs) and route it to the WS2812 status
+// widget (gohanda11 zmk-ws2812-driver). spi3 + ws2812@0 are defined disabled in
+// the cornix board dtsi; here we turn them on and give the node a label.
 &spi3 {
     status = "okay";
 
-   led_strip: ws2812@0 {
+    led_strip: ws2812@0 {
         status = "okay";
     };
 };
 
 / {
+    chosen {
+        // ws2812-driver looks up the strip via DT_CHOSEN(zmk_ws2812_widget)
+        zmk,ws2812-widget = &led_strip;
+    };
 
+    // LEDs are powered through the external-power switch
     EXT_POWER {
         status = "okay";
-    };
-
-    aliases {
-        status-ws2812 = &led_strip;
-    };
-
-    chosen {
-		  widget,rgb = &led_strip;
     };
 };
 
